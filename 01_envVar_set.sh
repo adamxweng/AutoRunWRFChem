@@ -10,11 +10,11 @@ export targetwrfchemdir=$wrfsrun415dir
 export metdir=/met_embackup/directory/
 
 # declare log directory
-export logdir=/logdir
+export logdir=./logdir
 mkdir -p $logdir
 
 # declare namelist
-export namelistdir=/namelistdir
+export namelistdir=./namelistlog
 export namelistwrf=namelist_WRFchem371.input
 mkdir -p $namelistdir
 
@@ -40,13 +40,6 @@ export startday=28
 export endyear=2017
 export endmonth=08
 export endday=01
-
-cat > wes_coldnes_wrflink.inp <<EOF
-&control
-wrf_dir = '/gpfs/home/hpc15zha/project/11_wrfchem_20211129/tools/wes-coldens/wrf_sfLink'
-domains = 1,
-/
-EOF
 
 
 cat > ${namelistdir}/${namelistwrf} <<EOF
@@ -252,8 +245,9 @@ cat > ${namelistdir}/${namelistwrf} <<EOF
  nio_tasks_per_group                 = 0,                                    ! # of processors used for IO quilting per IO group
  nio_groups                          = 0                                     ! number of quilting groups
  /
-
 EOF
+
+
 
 cat > ${namelistdir}/${namelistreal} <<EOF
 &time_control
@@ -458,4 +452,6 @@ cat > ${namelistdir}/${namelistreal} <<EOF
  nio_tasks_per_group                 = 0,                                    ! # of processors used for IO quilting per IO group
  nio_groups                          = 0                                     ! number of quilting groups
  /
-EOF 
+EOF
+
+ 
