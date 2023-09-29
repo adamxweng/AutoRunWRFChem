@@ -301,7 +301,6 @@ cat > ${namelistdir}/${namelistreal} <<EOF
  max_dom                             = 1
  e_we                                = 140,  100,   73,                     !large China domain
  e_sn                                = 110,   82,   82,                     !large China domain
-ut_d<domain>_<date>_202_base371heteor_wNudgingPBL
  e_vert                              = 29,   30,   30,
  p_top_requested                     = 5000,
  eta_levels                          = 1,0.9979,0.994,0.989,0.984,0.979,0.9711,
