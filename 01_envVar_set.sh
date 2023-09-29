@@ -300,7 +300,7 @@ cat > ${namelistdir}/${namelistreal} <<EOF
  time_step_fract_den                 = 1,
  max_dom                             = 1
  e_we                                = 140,  100,   73,                     !large China domain
- e_sn                                = 110,   82,   82,                     flarge China domain
+ e_sn                                = 110,   82,   82,                     !large China domain
 ut_d<domain>_<date>_202_base371heteor_wNudgingPBL
  e_vert                              = 29,   30,   30,
  p_top_requested                     = 5000,
