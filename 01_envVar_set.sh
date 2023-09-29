@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# version 1.1 20230517
+# version 1.1 20230929
 
 source ~/.bash_profile
 # declare WRF-chem directory
@@ -84,7 +84,7 @@ cat > ${namelistdir}/${namelistwrf} <<EOF
  !frames_per_auxinput7                = 1,
  !auxinput7_interval_m                = 60,
  !force_use_old_data = .true.           !have to use it given version 4.1.5
- history_outname = './wrfout_d<domain>_<date>_202_base371heteor'
+ history_outname = './wrfout_d<domain>_<date>_202_base371heteor_wNudgingPBL'
  /
 
  &domains
@@ -148,9 +148,9 @@ cat > ${namelistdir}/${namelistwrf} <<EOF
  gfdda_inname                        = "wrffdda_d<domain>",
  gfdda_end_h                         = 10000, 0,                               ! time (hr) to stop nudging after the start of the forecast
  gfdda_interval_m                    = 360, 0,                               ! time interval (in mins) between analysis times
- if_no_pbl_nudging_uv                = 1, 0,                                 ! nudging of u and v in the PBL, 0 = yes, 1 = no
- if_no_pbl_nudging_t                 = 1, 0,                                 ! nudging of t in the PBL, 0 = yes, 1 = no
- if_no_pbl_nudging_q                 = 1, 0,                                 ! nudging of q in the PBL, 0 = yes, 1 = no
+ if_no_pbl_nudging_uv                = 0, 0,                                 ! nudging of u and v in the PBL, 0 = yes, 1 = no
+ if_no_pbl_nudging_t                 = 0, 0,                                 ! nudging of t in the PBL, 0 = yes, 1 = no
+ if_no_pbl_nudging_q                 = 0, 0,                                 ! nudging of q in the PBL, 0 = yes, 1 = no
  if_zfac_uv                          = 0, 0,                                 ! nudge u and v in all layers, 0 = yes, 1 = limit to k_zfac_uv layers
  k_zfac_uv                           = 2,                                    ! model level below which nudging is switched off for u and v
  if_zfac_t                           = 0, 0,                                 ! nudge t in all layers, 0 = yes, 1 = limit to k_zfac_t layers
@@ -291,7 +291,7 @@ cat > ${namelistdir}/${namelistreal} <<EOF
  !frames_per_auxinput7                = 1,
  !auxinput7_interval_m                = 60,
  !force_use_old_data = .true.           !have to use it given version 4.1.5
- history_outname = './wrfout_d<domain>_<date>_202_base371heteor'
+ history_outname = './wrfout_d<domain>_<date>_202_base371heteor_wNudgingPBL'
  /
 
  &domains
@@ -300,7 +300,8 @@ cat > ${namelistdir}/${namelistreal} <<EOF
  time_step_fract_den                 = 1,
  max_dom                             = 1
  e_we                                = 140,  100,   73,                     !large China domain
- e_sn                                = 110,   82,   82,                     !large China domain
+ e_sn                                = 110,   82,   82,                     flarge China domain
+ut_d<domain>_<date>_202_base371heteor_wNudgingPBL
  e_vert                              = 29,   30,   30,
  p_top_requested                     = 5000,
  eta_levels                          = 1,0.9979,0.994,0.989,0.984,0.979,0.9711,
@@ -355,9 +356,9 @@ cat > ${namelistdir}/${namelistreal} <<EOF
  gfdda_inname                        = "wrffdda_d<domain>",
  gfdda_end_h                         = 10000, 0,                               ! time (hr) to stop nudging after the start of the forecast
  gfdda_interval_m                    = 360, 0,                               ! time interval (in mins) between analysis times
- if_no_pbl_nudging_uv                = 1, 0,                                 ! nudging of u and v in the PBL, 0 = yes, 1 = no
- if_no_pbl_nudging_t                 = 1, 0,                                 ! nudging of t in the PBL, 0 = yes, 1 = no
- if_no_pbl_nudging_q                 = 1, 0,                                 ! nudging of q in the PBL, 0 = yes, 1 = no
+ if_no_pbl_nudging_uv                = 0, 0,                                 ! nudging of u and v in the PBL, 0 = yes, 1 = no
+ if_no_pbl_nudging_t                 = 0, 0,                                 ! nudging of t in the PBL, 0 = yes, 1 = no
+ if_no_pbl_nudging_q                 = 0, 0,                                 ! nudging of q in the PBL, 0 = yes, 1 = no
  if_zfac_uv                          = 0, 0,                                 ! nudge u and v in all layers, 0 = yes, 1 = limit to k_zfac_uv layers
  k_zfac_uv                           = 2,                                    ! model level below which nudging is switched off for u and v
  if_zfac_t                           = 0, 0,                                 ! nudge t in all layers, 0 = yes, 1 = limit to k_zfac_t layers

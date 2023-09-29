@@ -1,6 +1,10 @@
-# AutoRunWRFChem 3.7.1
+# AutoRunWRFChem 3.7.1 with Nudging below PBL
 
 scripts for running WRF-Chem 3.7.1
+In this branch, nuding below PBL is switched on.
+if_no_pbl_nudging_uv                = 0,
+if_no_pbl_nudging_t                 = 0,
+if_no_pbl_nudging_q                 = 0, 
 
 auto create namelist for real.exe and wrf.exe
 
